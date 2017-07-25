@@ -26,10 +26,11 @@ void deadLock()
 
 void test()
 {
-    dispatch_queue_t manualSerial = dispatch_queue_create("gary.manualSerial", DISPATCH_QUEUE_SERIAL);
-    dispatch_async(manualSerial, ^{
+    dispatch_queue_t manualSerial1 = dispatch_queue_create("gary.manualSerial1", DISPATCH_QUEUE_SERIAL);
+    dispatch_queue_t manualSerial2 = dispatch_queue_create("gary.manualSerial2", DISPATCH_QUEUE_SERIAL);
+    dispatch_sync(manualSerial1, ^{
         NSLog(@"hhh");
-        dispatch_sync(manualSerial, ^{
+        dispatch_sync(manualSerial2, ^{
            NSLog(@"aaa");
         });
     });
@@ -90,7 +91,7 @@ int main(int argc, const char * argv[]) {
      //   callCheckApply();//并发循环
       //  callBarrier();
      //   deadLock();
-   
+        test();
     }
     
     return 0;
