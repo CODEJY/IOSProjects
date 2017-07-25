@@ -11,9 +11,11 @@
 //死锁,死循环引起
 void deadLock()
 {
-    dispatch_async(dispatch_get_global_queue(0, 0), ^(){
+    dispatch_queue_t manualSerial = dispatch_queue_create("gary.manualSerial", DISPATCH_QUEUE_SERIAL);
+    dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(){
         NSLog(@"1");
-        dispatch_sync(dispatch_get_main_queue(), ^{
+        
+        dispatch_sync(manualSerial, ^{
             NSLog(@"2");
         });
         NSLog(@"3");
@@ -21,6 +23,19 @@ void deadLock()
     NSLog(@"4");
     while(1);
 }
+
+void test()
+{
+    dispatch_queue_t manualSerial = dispatch_queue_create("gary.manualSerial", DISPATCH_QUEUE_SERIAL);
+    dispatch_async(manualSerial, ^{
+        NSLog(@"hhh");
+        dispatch_sync(manualSerial, ^{
+           NSLog(@"aaa");
+        });
+    });
+    
+}
+
 
 //同步或异步函数并行队列
 void callCheck1()
@@ -64,15 +79,18 @@ void callBarrier()
     MyGCD* myGCD = [[MyGCD alloc] init];
     [myGCD checkBarrier];
 }
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
        // callCheck1();//同步异步函数，并行队列
        // callCheck2();//同步串行
        // callCheck3();//同步主队列死锁
-      //  callCheck4();//嵌套同步串行死锁
+       // callCheck4();//嵌套同步串行死锁
       //  callCheckGroup();//组任务
      //   callCheckApply();//并发循环
-    //    callBarrier();//
+      //  callBarrier();
+     //   deadLock();
+   
     }
     
     return 0;

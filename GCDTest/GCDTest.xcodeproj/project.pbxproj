@@ -254,6 +254,7 @@
 				8CA152921F2574D200B9EE7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

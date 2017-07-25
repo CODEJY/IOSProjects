@@ -24,25 +24,28 @@
 }
 -(void)accessNet
 {
-    NSURL *url = [NSURL URLWithString:@"http://api.hudong.com/iphonexml.do?type=focus-c"];
+    NSURL *url = [NSURL URLWithString:@"http://www.baidu.com/"];
     //第二步，通过URL创建网络请求
     NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
     //第三步，连接服务器
     NSData *received = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    NSString *str = [[NSString alloc]initWithData:received encoding:NSUTF8StringEncoding];
-    NSLog(@"%@",str);
+    NSString *str2 = [[NSString alloc]initWithData:received encoding:NSUTF8StringEncoding];
+    NSLog(@"%@",str2);
 }
 -(void) check1
 {
     //改成sync测试同步
-    dispatch_async(globalQueue, ^{
+    dispatch_sync(globalQueue, ^{
     [self accessNet];
     });
-    dispatch_async(globalQueue, ^{
+    dispatch_sync(globalQueue, ^{
         NSLog(@"globalQueue");
     });
     NSLog(@"同步异步函数并行队列测试");
-   // while(1);//用于测试异步
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), manualSerial, ^{
+        NSLog(@"延迟执行");
+    });
+  //  while(1);//用于测试异步
 }
 -(void) check2
 {
@@ -66,12 +69,12 @@
     //改成async可解开死锁,加上while
     dispatch_sync(manualSerial, ^{
         [self accessNet];
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), manualSerial, ^{
+        dispatch_sync(manualSerial, ^{
             NSLog(@"嵌套同步串行");
-        });//延迟执行,指定时间后追加到队列中
+        });
+       
     });
-  //  while(1);
+    while(1);
 }
 -(void)checkGroup
 {
@@ -118,6 +121,7 @@
         [str appendString:str1];
         NSLog(@"%@",str);
     });//只能对手动创建的并行队列使用
+    
     while(1);
 }
 @end
