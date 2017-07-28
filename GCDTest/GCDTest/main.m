@@ -30,7 +30,7 @@ void test()
     dispatch_queue_t manualSerial2 = dispatch_queue_create("gary.manualSerial2", DISPATCH_QUEUE_SERIAL);
     dispatch_sync(manualSerial1, ^{
         NSLog(@"hhh");
-        dispatch_sync(manualSerial2, ^{
+        dispatch_sync(manualSerial1, ^{
            NSLog(@"aaa");
         });
     });
@@ -90,7 +90,6 @@ int main(int argc, const char * argv[]) {
       //  callCheckGroup();//组任务
      //   callCheckApply();//并发循环
       //  callBarrier();
-     //   deadLock();
         test();
     }
     

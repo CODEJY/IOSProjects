@@ -35,26 +35,26 @@
 -(void) check1
 {
     //改成sync测试同步
-    dispatch_sync(globalQueue, ^{
+    dispatch_async(globalQueue, ^{
     [self accessNet];
     });
-    dispatch_sync(globalQueue, ^{
+    dispatch_async(globalQueue, ^{
         NSLog(@"globalQueue");
     });
     NSLog(@"同步异步函数并行队列测试");
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), manualSerial, ^{
         NSLog(@"延迟执行");
     });
-  //  while(1);//用于测试异步
+    while(1);//用于测试异步
 }
 -(void) check2
 {
     dispatch_sync(manualSerial, ^{
         [self accessNet];
     });
-  /*  dispatch_sync(manualSerial, ^{
+    dispatch_sync(manualSerial, ^{
         NSLog(@"manualQueue");
-    });*/
+    });
     NSLog(@"同步异步函数串行队列测试");
 }
 -(void) check3
@@ -66,15 +66,15 @@
 }
 -(void) check4
 {
-    //改成async可解开死锁,加上while
+    //内部改成async可解开死锁,加上while
     dispatch_sync(manualSerial, ^{
         [self accessNet];
-        dispatch_sync(manualSerial, ^{
+        dispatch_async(manualSerial, ^{
             NSLog(@"嵌套同步串行");
         });
        
     });
-    while(1);
+    //while(1);
 }
 -(void)checkGroup
 {

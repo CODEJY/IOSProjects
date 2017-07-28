@@ -16,6 +16,9 @@ NSString* str = @"global";
     NSLog(@"%@",^() {
         NSLog(@"%@",str_);
     });
+    NSLog(@"%@",[^() {
+        NSLog(@"%@",str_);
+    } copy]);
 }
 -(void) globalBlock
 {
@@ -37,10 +40,10 @@ NSString* str = @"global";
 -(void) testBlock
 {
     B* b = [[B alloc] init];
-   // __weak typeof(b) bWeak = b;
+    //__weak typeof(b) bWeak = b;
     self.theBlock = ^(){
-        //[bWeak doSomething];
-        [b doSomething];
+       // [bWeak doSomething];
+        [b doSomething];//去掉上一句注释，把这一句注释了
         
     };
     b.myBlock = self;

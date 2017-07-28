@@ -17,5 +17,5 @@ typedef void (^block)();
 -(void) globalBlock;//NSGlobalBlock
 -(block) blockReturn;//block作为返回值,NSMallocBlock
 -(void) testBlock;//两个类之间循环引用
--(void) testBlock2;
+-(void) testBlock2;//调用self就会循环引用
 @end

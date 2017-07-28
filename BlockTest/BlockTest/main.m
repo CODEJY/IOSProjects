@@ -46,6 +46,7 @@ void checkStackBlock()
 void checkglobalBlock()
 {
     MyBlock* myBlock = [[MyBlock alloc] init];
+    
     [myBlock globalBlock];
 }
 
@@ -66,10 +67,10 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         //checkBasic();//基本用法
         //checkSort(sortDescend);//将block当作参数传递
-     //   checkStackBlock();//StackBlock
-       // checkglobalBlock();//GlobalBlock
+        checkStackBlock();//StackBlock
+      //  checkglobalBlock();//GlobalBlock
         //asReturnBlock();//block作为返回值
-        checkReference();//循环引用
+      //  checkReference();//循环引用
     }
     return 0;
 }
