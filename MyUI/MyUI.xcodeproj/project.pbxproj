@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8C5398071F299367007EC6B8 /* tableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C5398051F299367007EC6B8 /* tableViewController.m */; };
 		8C5398081F299367007EC6B8 /* tableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C5398061F299367007EC6B8 /* tableViewController.xib */; };
+		8CD0C5981F2B2A6800662A64 /* NavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CD0C5971F2B2A6800662A64 /* NavigationView.xib */; };
 		8CEF3C241F28922600929D90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CEF3C231F28922600929D90 /* main.m */; };
 		8CEF3C271F28922600929D90 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CEF3C261F28922600929D90 /* AppDelegate.m */; };
 		8CEF3C2A1F28922600929D90 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CEF3C291F28922600929D90 /* ViewController.m */; };
@@ -23,6 +24,7 @@
 		8C5398041F299367007EC6B8 /* tableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tableViewController.h; sourceTree = "<group>"; };
 		8C5398051F299367007EC6B8 /* tableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tableViewController.m; sourceTree = "<group>"; };
 		8C5398061F299367007EC6B8 /* tableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = tableViewController.xib; sourceTree = "<group>"; };
+		8CD0C5971F2B2A6800662A64 /* NavigationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigationView.xib; sourceTree = "<group>"; };
 		8CEF3C1F1F28922600929D90 /* MyUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CEF3C231F28922600929D90 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8CEF3C251F28922600929D90 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				8C5398041F299367007EC6B8 /* tableViewController.h */,
 				8C5398051F299367007EC6B8 /* tableViewController.m */,
 				8C5398061F299367007EC6B8 /* tableViewController.xib */,
+				8CD0C5971F2B2A6800662A64 /* NavigationView.xib */,
 			);
 			path = MyUI;
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CEF3C421F2896FE00929D90 /* LaunchViewController.xib in Resources */,
+				8CD0C5981F2B2A6800662A64 /* NavigationView.xib in Resources */,
 				8CEF3C2F1F28922600929D90 /* Assets.xcassets in Resources */,
 				8CEF3C3D1F28928900929D90 /* MainViewController.xib in Resources */,
 				8C5398081F299367007EC6B8 /* tableViewController.xib in Resources */,

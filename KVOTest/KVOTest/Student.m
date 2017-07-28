@@ -9,7 +9,7 @@
 #import "Student.h"
 
 @implementation Student
-@synthesize name,university;
+//@synthesize name,university;
 -(void) changeName:(NSString *)name_ andUniversity:(NSString *)university_
 {
     self.name = name_;

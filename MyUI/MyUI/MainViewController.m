@@ -14,14 +14,12 @@
 @end
 
 @implementation MainViewController
-- (IBAction)goAnother:(UIButton *)sender {
-    tableViewController* table = [[tableViewController alloc] initWithNibName:@"tableViewController" bundle:nil];
-    [self.navigationController pushViewController:table animated:YES];
-}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    NSLog(@"viewDidLoad");
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,6 +27,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void) viewDidAppear:(BOOL)animated
+{
+    NSLog(@"ViewDidAppear");
+}
 /*
 #pragma mark - Navigation
 

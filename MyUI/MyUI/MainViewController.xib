@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController">
             <connections>
                 <outlet property="button" destination="9ih-o1-MQK" id="Byg-8f-e3Y"/>
+                <outlet property="searchDisplayController" destination="b0K-HV-tKO" id="awN-oQ-3rZ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="qn2-oi-5Ja"/>
             </connections>
         </placeholder>
@@ -28,23 +29,38 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ih-o1-MQK">
-                    <rect key="frame" x="172" y="80" width="30" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
+                    <rect key="frame" x="172" y="397" width="30" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Go"/>
                     <connections>
                         <action selector="goAnother:" destination="-1" eventType="touchDown" id="3my-DW-PVL"/>
                     </connections>
                 </button>
-                <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FNl-6F-M6U">
-                    <rect key="frame" x="20" y="128" width="334" height="44"/>
+                <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dib-p5-Gz5">
+                    <rect key="frame" x="44" y="217" width="228" height="49"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <items>
+                        <tabBarItem systemItem="favorites" id="Yxr-fE-uwE"/>
+                    </items>
+                </tabBar>
+                <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9ks-AR-AcZ">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <items>
-                        <navigationItem title="Title" id="32k-Gt-eM9"/>
+                        <navigationItem title="Title" id="6b1-MK-FXE"/>
                     </items>
                 </navigationBar>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <point key="canvasLocation" x="-272.5" y="-49.5"/>
+            <point key="canvasLocation" x="-29.5" y="-80.5"/>
         </view>
+        <searchDisplayController id="b0K-HV-tKO">
+            <connections>
+                <outlet property="delegate" destination="-1" id="ehA-qR-d4Z"/>
+                <outlet property="searchContentsController" destination="-1" id="zgE-R9-ecN"/>
+                <outlet property="searchResultsDataSource" destination="-1" id="E9d-z7-adq"/>
+                <outlet property="searchResultsDelegate" destination="-1" id="eZK-QV-ygc"/>
+            </connections>
+        </searchDisplayController>
     </objects>
 </document>
