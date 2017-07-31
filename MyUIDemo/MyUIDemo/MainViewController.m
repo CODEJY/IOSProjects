@@ -37,8 +37,9 @@ static NSString * identifier = @"CellIdentifier";
 {
     MyTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     
-    cell = [[[UINib nibWithNibName:@"MyTableViewCell" bundle:nil]instantiateWithOwner:self options:nil]lastObject];
     
+    cell = [[[UINib nibWithNibName:@"MyTableViewCell" bundle:nil]instantiateWithOwner:self options:nil]lastObject];
+    cell.delegate = self;
     cell.date.text = @"2017-07-31";
     cell.title.text = @"Title";
     cell.content.text = @"adadadasdadadadasdasdadasdadadadadasdssdadadadadadad";
@@ -58,5 +59,28 @@ static NSString * identifier = @"CellIdentifier";
     // Pass the selected object to the new view controller.
 }
 */
-
+-(void)alertDialog
+{
+    NSLog(@"alert");
+  
+    //初始化提示框；
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"用户名或密码出现错误" preferredStyle: UIAlertControllerStyleAlert];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"YES" style:UIAlertActionStyleDefault handler:^()(UIAlertAction * _Nonnull action) {
+        //点击按钮的响应事件；
+       
+        
+     
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"NO" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //点击按钮的响应事件；
+        
+       
+     
+    }]];
+    
+    //弹出提示框；
+    [self presentViewController:alert animated:true completion:nil];
+    
+}
 @end

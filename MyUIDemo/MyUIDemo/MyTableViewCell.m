@@ -22,15 +22,23 @@
     
     if ([touch view] == self.favorate)
     {
+        
+        NSLog(@"%d",[self.delegate alertDialog]);
+        
+      /*  if ([self.delegate alertDialog]) {
         UIImage* image = [UIImage imageNamed:@"nonstar"];
         //do some method.....
-        if ([self.favorate.image isEqual:image])
+            if ([self.favorate.image isEqual:image]) {
+                NSLog(@"yes");
             self.favorate.image = [UIImage imageNamed:@"star"];
+            }
         else
         {
+            NSLog(@"no");
            self.favorate.image = [UIImage imageNamed:@"nonstar"];
         }
         NSLog(@"ghh");
+        }*/
         
     }
     
