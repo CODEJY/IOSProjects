@@ -30,13 +30,14 @@
                 </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="tintColor" red="0.02271801182512247" green="0.089992929648717565" blue="0.6128251903553299" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
-                <constraint firstItem="6FL-KE-bEJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0CC-Ln-d0M"/>
-                <constraint firstAttribute="bottom" secondItem="6FL-KE-bEJ" secondAttribute="bottom" id="9od-fs-Kq6"/>
-                <constraint firstItem="6FL-KE-bEJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="YCQ-bM-uCj"/>
-                <constraint firstAttribute="trailing" secondItem="6FL-KE-bEJ" secondAttribute="trailing" id="zMo-Cv-Itq"/>
+                <constraint firstItem="6FL-KE-bEJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="U2V-GI-rhR"/>
+                <constraint firstItem="6FL-KE-bEJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="kF6-Mr-AJh"/>
+                <constraint firstAttribute="trailing" secondItem="6FL-KE-bEJ" secondAttribute="trailing" id="tSH-Mj-pm9"/>
+                <constraint firstAttribute="bottom" secondItem="6FL-KE-bEJ" secondAttribute="bottom" id="yC4-bn-Fuv"/>
             </constraints>
-            <point key="canvasLocation" x="35.5" y="54.5"/>
+            <point key="canvasLocation" x="41.5" y="68.5"/>
         </view>
     </objects>
 </document>

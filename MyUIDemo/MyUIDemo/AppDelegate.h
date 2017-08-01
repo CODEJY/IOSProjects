@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "MainViewController.h"
-
+#import "RegisterViewController.h"
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
+@property (weak, nonatomic) IBOutlet UINavigationBar *navBar;
 
+@property (weak, nonatomic) IBOutlet UINavigationItem *item;
+@property (strong, nonatomic) IBOutlet UINavigationController *controller;
 @property (strong, nonatomic) UIWindow *window;
 
 

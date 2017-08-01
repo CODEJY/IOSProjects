@@ -10,5 +10,5 @@
 #import "MyTableViewCell.h"
 @interface MainViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,MyTableViewCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property (strong,nonatomic)NSMutableArray* date_,*title_, *content_;
 @end

@@ -13,34 +13,14 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-
+   
 }
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    
     UITouch *touch = [[event allTouches] anyObject];
     
     if ([touch view] == self.favorate)
-    {
-        
-        NSLog(@"%d",[self.delegate alertDialog]);
-        
-      /*  if ([self.delegate alertDialog]) {
-        UIImage* image = [UIImage imageNamed:@"nonstar"];
-        //do some method.....
-            if ([self.favorate.image isEqual:image]) {
-                NSLog(@"yes");
-            self.favorate.image = [UIImage imageNamed:@"star"];
-            }
-        else
-        {
-            NSLog(@"no");
-           self.favorate.image = [UIImage imageNamed:@"nonstar"];
-        }
-        NSLog(@"ghh");
-        }*/
-        
-    }
+        [self.delegate alertDialog:self];
     
 }
 /*-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
@@ -57,7 +37,21 @@
     }
     return self;
 }*/
+-(void) changeImg
+{
+        UIImage* image = [UIImage imageNamed:@"nonstar"];
+        //do some method.....
+        if ([self.favorate.image isEqual:image]) {
+            self.favorate.image = [UIImage imageNamed:@"star"];
+          
+        }
+        else
+        {
+            self.favorate.image = [UIImage imageNamed:@"nonstar"];
+     
+        }
 
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
