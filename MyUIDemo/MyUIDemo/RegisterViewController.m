@@ -27,7 +27,7 @@ static NSString* identifier4 = @"city";
         }
     }
     // Do any additional setup after loading the view from its nib.
-    self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:0 green:0 blue:255 alpha:1];
+    self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:1];
     self.navigationItem.title = @"Register";
     self.tableView.tableFooterView = [[UIView alloc] init];
 
@@ -47,16 +47,17 @@ static NSString* identifier4 = @"city";
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"cell for row");
     TableViewCell1 * cell;
     if (indexPath.row == 0) {
         cell = [tableView dequeueReusableCellWithIdentifier:identifier1];
     }
     if (indexPath.row == 1) {
         cell = [tableView dequeueReusableCellWithIdentifier:identifier2];
+        
     }
     if (indexPath.row == 2) {
         cell = [tableView dequeueReusableCellWithIdentifier:identifier3];
+        
     }
     if (indexPath.row == 3) {
         cell = [tableView dequeueReusableCellWithIdentifier:identifier4];

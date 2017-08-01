@@ -16,7 +16,6 @@
 		8C21BB3C1F30657A007A913B /* TableViewCell4.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C21BB3A1F30657A007A913B /* TableViewCell4.m */; };
 		8C21BB3D1F30657A007A913B /* TableViewCell4.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C21BB3B1F30657A007A913B /* TableViewCell4.xib */; };
 		8C21BB3F1F306617007A913B /* TableViewCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C21BB3E1F306617007A913B /* TableViewCell1.xib */; };
-		8C21BB411F30664F007A913B /* TableViewCell3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C21BB401F30664F007A913B /* TableViewCell3.xib */; };
 		8C7E26BC1F2EFD6400767D18 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7E26BB1F2EFD6400767D18 /* main.m */; };
 		8C7E26BF1F2EFD6400767D18 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7E26BE1F2EFD6400767D18 /* AppDelegate.m */; };
 		8C7E26C71F2EFD6400767D18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C7E26C61F2EFD6400767D18 /* Assets.xcassets */; };
@@ -25,6 +24,7 @@
 		8C7E26D51F2EFD9100767D18 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C7E26D31F2EFD9100767D18 /* MainViewController.xib */; };
 		8C7E26D71F2F04BA00767D18 /* MyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C7E26D61F2F04BA00767D18 /* MyTableViewCell.xib */; };
 		8C7E26DA1F2F053500767D18 /* MyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7E26D91F2F053500767D18 /* MyTableViewCell.m */; };
+		BC2047241F30B1F2001D4540 /* TableViewCell3.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC2047231F30B1F2001D4540 /* TableViewCell3.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +42,6 @@
 		8C21BB3A1F30657A007A913B /* TableViewCell4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell4.m; sourceTree = "<group>"; };
 		8C21BB3B1F30657A007A913B /* TableViewCell4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell4.xib; sourceTree = "<group>"; };
 		8C21BB3E1F306617007A913B /* TableViewCell1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell1.xib; sourceTree = "<group>"; };
-		8C21BB401F30664F007A913B /* TableViewCell3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TableViewCell3.xib; path = ../../../.Trash/TableViewCell3.xib; sourceTree = "<group>"; };
 		8C7E26B71F2EFD6400767D18 /* MyUIDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyUIDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C7E26BB1F2EFD6400767D18 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8C7E26BD1F2EFD6400767D18 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -56,6 +55,7 @@
 		8C7E26D61F2F04BA00767D18 /* MyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyTableViewCell.xib; sourceTree = "<group>"; };
 		8C7E26D81F2F053500767D18 /* MyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableViewCell.h; sourceTree = "<group>"; };
 		8C7E26D91F2F053500767D18 /* MyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableViewCell.m; sourceTree = "<group>"; };
+		BC2047231F30B1F2001D4540 /* TableViewCell3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell3.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +111,7 @@
 				8C21BB311F306541007A913B /* TableViewCell2.xib */,
 				8C21BB341F30654E007A913B /* TableViewCell3.h */,
 				8C21BB351F30654E007A913B /* TableViewCell3.m */,
-				8C21BB401F30664F007A913B /* TableViewCell3.xib */,
+				BC2047231F30B1F2001D4540 /* TableViewCell3.xib */,
 				8C21BB391F30657A007A913B /* TableViewCell4.h */,
 				8C21BB3A1F30657A007A913B /* TableViewCell4.m */,
 				8C21BB3B1F30657A007A913B /* TableViewCell4.xib */,
@@ -188,7 +188,7 @@
 				8C7E26CA1F2EFD6400767D18 /* LaunchScreen.storyboard in Resources */,
 				8C21BB3D1F30657A007A913B /* TableViewCell4.xib in Resources */,
 				8C21BB271F3044FA007A913B /* RegisterViewController.xib in Resources */,
-				8C21BB411F30664F007A913B /* TableViewCell3.xib in Resources */,
+				BC2047241F30B1F2001D4540 /* TableViewCell3.xib in Resources */,
 				8C21BB331F306541007A913B /* TableViewCell2.xib in Resources */,
 				8C21BB3F1F306617007A913B /* TableViewCell1.xib in Resources */,
 				8C7E26D71F2F04BA00767D18 /* MyTableViewCell.xib in Resources */,

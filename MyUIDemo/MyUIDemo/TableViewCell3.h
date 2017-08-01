@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface TableViewCell3 : UITableViewCell
-@property (atomic,weak) IBOutlet UIPickerView* sexPicker;
+@property (nonatomic,weak) IBOutlet UIDatePicker* datePicker;
 @end

@@ -22,11 +22,6 @@
 }
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    UITouch *touch = [[event allTouches] anyObject];
-    
-    if ([touch view] != self.textField)
-        [self resignFirstResponder];
-    NSLog(@"touch");
-    
+        [self.textField resignFirstResponder];
 }
 @end

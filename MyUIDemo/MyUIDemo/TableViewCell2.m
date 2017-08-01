@@ -10,14 +10,31 @@
 
 @implementation TableViewCell2
 
--(NSArray*)data
+-(NSArray*) data
 {
-    if (! _data)
+    if (!_data)
     {
-        _data = [NSArray arrayWithObjects:@"Man",@"Woman", nil];
+        _data = [[NSArray alloc] initWithObjects:@"Man",@"Woman", nil];
     }
     return _data;
 }
+/*-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        
+        //不要把控件add到view上
+        //add到contentView才是你最正确的选择
+        
+        [self.contentView addSubview:self.selectedView];
+        
+        [self.contentView addSubview:self.label];
+        [self pickerView:nil didSelectRow:0 inComponent:0];
+        
+    }
+    return self;
+}*/
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
@@ -45,21 +62,17 @@
     // 由于该控件只包含一列，因此无须理会列序号参数component
     // 该方法根据row参数返回teams中的元素，row参数代表列表项的编号，
     // 因此该方法表示第几个列表项，就使用teams中的第几个元素
-    
-    return [_data objectAtIndex:row];
+   // NSLog(@"数据%ld,%@",row,[_data objectAtIndex:row]);
+ 
+   
+    return [self.data objectAtIndex:row];
 }
 //当选中时
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:
 (NSInteger)row inComponent:(NSInteger)component
 {
     // 使用一个UIAlertView来显示用户选中的列表项
-    UIAlertView* alert = [[UIAlertView alloc]
-                          initWithTitle:@"提示"
-                          message:[NSString stringWithFormat:@"你的性别是：%@"
-                                   , [ _data objectAtIndex:row]]
-                          delegate:nil
-                          cancelButtonTitle:@"确定"
-                          otherButtonTitles:nil];
-    [alert show];
+    NSLog(@"选中了");
 }
+
 @end

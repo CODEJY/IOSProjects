@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TableViewCell2 : UITableViewCell<UIPickerViewDelegate,UIPickerViewDataSource>
-@property (atomic,weak) IBOutlet UIPickerView* pickerView;
-@property (nonatomic,weak) NSArray* data;
+@interface TableViewCell2 : UITableViewCell
+@property (atomic,weak) IBOutlet UIPickerView* selectedView;
+@property (strong,nonatomic)NSArray* data;
+@property (atomic,weak) IBOutlet UILabel* label;
 @end
