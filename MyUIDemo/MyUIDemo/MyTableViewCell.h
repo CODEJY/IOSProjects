@@ -14,7 +14,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *favorate;
 @property (weak, nonatomic) IBOutlet UILabel *content;
 @property (weak,atomic)id delegate;
--(void)changeImg;
+@property (strong,nonatomic) NSMutableArray* state;
+-(void)changeImg:(NSUInteger) row;
 @end
 
 @protocol MyTableViewCellDelegate <NSObject>

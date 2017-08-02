@@ -24,6 +24,7 @@
                         <date key="date" timeIntervalSinceReferenceDate="523286546.17363697">
                             <!--2017-08-01 13:22:26 +0000-->
                         </date>
+                        <locale key="locale" localeIdentifier="zh-Hans"/>
                     </datePicker>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Birthday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1aJ-d6-rKq">
                         <rect key="frame" x="8" y="13" width="78" height="32"/>

@@ -14,7 +14,7 @@
 {
     if (!_data)
     {
-        _data = [[NSArray alloc] initWithObjects:@"Man",@"Woman", nil];
+        _data = [[NSArray alloc] initWithObjects:@"Male",@"Female", nil];
     }
     return _data;
 }
@@ -71,8 +71,7 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:
 (NSInteger)row inComponent:(NSInteger)component
 {
-    // 使用一个UIAlertView来显示用户选中的列表项
-    NSLog(@"选中了");
+ 
 }
 
 @end

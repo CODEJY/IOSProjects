@@ -10,6 +10,7 @@
 
 @implementation MyTableViewCell
 
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
@@ -37,18 +38,19 @@
     }
     return self;
 }*/
--(void) changeImg
+-(void) changeImg:(NSUInteger)row
 {
-        UIImage* image = [UIImage imageNamed:@"nonstar"];
+    NSLog(@"sub %p",self.state);
         //do some method.....
-        if ([self.favorate.image isEqual:image]) {
+        if ([self.state[row] isEqualToString:@"nonstar"]) {
             self.favorate.image = [UIImage imageNamed:@"star"];
+            [self.state replaceObjectAtIndex:row withObject:@"star"];
           
         }
         else
         {
             self.favorate.image = [UIImage imageNamed:@"nonstar"];
-     
+            [self.state replaceObjectAtIndex:row withObject:@"nonstar"];
         }
 
 }

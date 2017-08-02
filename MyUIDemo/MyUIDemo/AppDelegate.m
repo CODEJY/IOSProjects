@@ -17,10 +17,21 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    MainViewController* mainView;
+    RegisterViewController* registerView;
+    UINavigationController* nav;
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-   // MainViewController* main = [[MainViewController alloc] init];
-    RegisterViewController* main = [[RegisterViewController alloc] init];
-    UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:main];
+    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+    BOOL isLogin = [userDefaults objectForKey:@"isLogin"];
+    if (isLogin) {
+         mainView = [[MainViewController alloc] init];
+         nav = [[UINavigationController alloc] initWithRootViewController:mainView];
+    }
+    else
+    {
+        registerView = [[RegisterViewController alloc] init];
+        nav = [[UINavigationController alloc] initWithRootViewController:registerView];
+    }
     self.window.rootViewController = nav;
 
     [self.window makeKeyAndVisible];

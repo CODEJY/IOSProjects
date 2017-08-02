@@ -19,29 +19,33 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CvO-z7-s95">
-                        <rect key="frame" x="8" y="16" width="30.5" height="27.5"/>
+                        <rect key="frame" x="8" y="16" width="46" height="28"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQE-at-sMV">
-                        <rect key="frame" x="241" y="15" width="81.5" height="28"/>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rHY-DC-EPG">
+                        <rect key="frame" x="326" y="11" width="41" height="39"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" title="Select City"/>
+                        <state key="normal" title="Button" image="goAhead"/>
                         <connections>
-                            <action selector="goSelectCity:" destination="BXE-id-rk0" eventType="touchUpInside" id="bUZ-Fn-tCU"/>
+                            <action selector="selectCity:" destination="BXE-id-rk0" eventType="touchUpInside" id="h0C-iL-vtF"/>
                         </connections>
                     </button>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="goAhead" translatesAutoresizingMaskIntoConstraints="NO" id="KqJ-Xi-NrD">
-                        <rect key="frame" x="331" y="11" width="36" height="36"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RdZ-0d-QTy">
+                        <rect key="frame" x="130" y="13" width="200" height="33"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </imageView>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </tableViewCellContentView>
             <connections>
                 <outlet property="city" destination="CvO-z7-s95" id="lva-Hc-aap"/>
-                <outlet property="selectCity" destination="TQE-at-sMV" id="UUE-3L-Z9O"/>
+                <outlet property="cityName" destination="RdZ-0d-QTy" id="a9i-7b-GE8"/>
+                <outlet property="selectedCity_btn" destination="rHY-DC-EPG" id="KUq-pf-WtZ"/>
             </connections>
             <point key="canvasLocation" x="59.5" y="379"/>
         </tableViewCell>

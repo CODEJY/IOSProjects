@@ -21,10 +21,6 @@
     // Configure the view for the selected state
 }
 
-- (IBAction)goSelectCity:(id)sender
-{
-    NSLog(@"go");
-}
 /*// ios8 之后可以自动识别出来subview
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
  
@@ -40,4 +36,9 @@
  return self;
  }*/
 
+- (IBAction)selectCity:(id)sender {
+    NSLog(@"cell4 select");
+    [self.delegate goSelectCityView];
+    
+}
 @end

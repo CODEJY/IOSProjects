@@ -70,13 +70,33 @@ static NSString * identifier = @"CellIdentifier";
     }
     return _content_;
 }
-
+-(NSMutableArray*)state
+{
+    if (!_state)
+    {
+        _state = [[NSMutableArray alloc] initWithCapacity:10];
+        for (int i = 0; i < 10; i++)
+            [_state addObject:@"nonstar"];
+    }
+    return _state;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationController.navigationBar.backgroundColor = [UIColor redColor];
-    self.navigationItem.title = @"User Name";
+    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+    self.username = [userDefaults objectForKey:@"username"];
+    NSLog(@"%@",self.username);
+    self.navigationItem.hidesBackButton = YES;
     [self.tableView registerNib:[UINib nibWithNibName:@"MyTableViewCell" bundle:nil] forCellReuseIdentifier:identifier];
+    self.navigationItem.title = self.username;
+    //取消由于在scrollview上点击按钮有延迟，长按才可以，在tableView中取消就可以
+    for (UIView *subView in self.tableView.subviews) {
+        if ([subView isKindOfClass:[UIScrollView class]]) {
+            ((UIScrollView *)subView).delaysContentTouches = false;
+            break;
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -97,7 +117,7 @@ static NSString * identifier = @"CellIdentifier";
     cell.date.text = [self.date_ objectAtIndex:indexPath.row];
     cell.title.text = [self.title_ objectAtIndex:indexPath.row];
     cell.content.text = [self.content_ objectAtIndex:indexPath.row];
-    cell.favorate.image = [UIImage imageNamed:@"nonstar"];
+    cell.favorate.image = [UIImage imageNamed:self.state[indexPath.row]];
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -128,12 +148,19 @@ static NSString * identifier = @"CellIdentifier";
 -(void)alertDialog:(MyTableViewCell*)cell
 {
 
+    NSIndexPath* indexPath = [self.tableView indexPathForCell:cell];
+    NSString* message_;
+    if ([self.state[indexPath.row] isEqualToString:@"nonstar"])
+        message_ = @"Are you sure to mark as favorite?";
+    else
+        message_ = @"Are you sure to cancel the mark?";
     //初始化提示框；
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Are you sure to mark as favorite?" preferredStyle: UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Alert" message:message_ preferredStyle: UIAlertControllerStyleAlert];
     
     [alert addAction:[UIAlertAction actionWithTitle:@"YES" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         //点击按钮的响应事件；
-        [cell changeImg];
+        cell.state = self.state;
+        [cell changeImg:indexPath.row];
      
     }]];
     [alert addAction:[UIAlertAction actionWithTitle:@"NO" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {

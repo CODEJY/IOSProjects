@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol TableViewCell4Delegate <NSObject>
+-(void)goSelectCityView;
+@end
 @interface TableViewCell4 : UITableViewCell
-- (IBAction)goSelectCity:(id)sender;
-@property (atomic,weak) IBOutlet UIButton* selectCity;
+@property (atomic,weak) IBOutlet UIButton* selectedCity_btn;
 @property (atomic,weak) IBOutlet UILabel* city;
+- (IBAction)selectCity:(id)sender;
+@property (atomic,weak) IBOutlet UILabel* cityName;
+@property (nonatomic,weak) id<TableViewCell4Delegate> delegate;
 @end
