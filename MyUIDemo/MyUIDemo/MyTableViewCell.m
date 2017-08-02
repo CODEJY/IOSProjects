@@ -40,7 +40,6 @@
 }*/
 -(void) changeImg:(NSUInteger)row
 {
-    NSLog(@"sub %p",self.state);
         //do some method.....
         if ([self.state[row] isEqualToString:@"nonstar"]) {
             self.favorate.image = [UIImage imageNamed:@"star"];

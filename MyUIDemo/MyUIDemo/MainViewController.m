@@ -86,7 +86,6 @@ static NSString * identifier = @"CellIdentifier";
     self.navigationController.navigationBar.backgroundColor = [UIColor redColor];
     NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
     self.username = [userDefaults objectForKey:@"username"];
-    NSLog(@"%@",self.username);
     self.navigationItem.hidesBackButton = YES;
     [self.tableView registerNib:[UINib nibWithNibName:@"MyTableViewCell" bundle:nil] forCellReuseIdentifier:identifier];
     self.navigationItem.title = self.username;

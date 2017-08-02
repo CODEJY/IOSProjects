@@ -32,6 +32,8 @@
     self.tableView.tableFooterView = [[UIView alloc] init];
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
     self.searchController.hidesNavigationBarDuringPresentation = NO;//搜索时不隐藏导航栏
+    self.searchController.dimsBackgroundDuringPresentation = NO;//搜索结果是否显示背景，设置为NO会被tableview监听到点击事件，YES不会被监听到
+  //  self.searchController.obscuresBackgroundDuringPresentation = NO;//和上面一样的
     self.searchController.delegate = self;
     self.searchController.searchResultsUpdater = self;
     //将searchbar设置为tableview的header，避免点击searchbar后tableview 视图显示不正确
@@ -92,6 +94,13 @@
 }
 -(void)willDismissSearchController:(UISearchController *)searchController
 {
-    NSLog(@"ggg");
+    NSString *searchString = [self.searchController.searchBar text];
+    NSInteger row =  [self.data indexOfObject:searchString];
+    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:row inSection:0];
+    UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    
 }
+
+
+
 @end
