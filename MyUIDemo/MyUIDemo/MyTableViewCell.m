@@ -16,43 +16,55 @@
     // Initialization code
    
 }
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch *touch = [[event allTouches] anyObject];
-    
-    if ([touch view] == self.favorate)
+    if ([touch view] == self.favorate) {
         [self.delegate alertDialog:self];
+    }
+}
+
+
+-(void) changeImg:(NSUInteger)row
+{
+    //do some method.....
+    if ([self.state[row] isEqualToString:@"nonstar"]) {
+        self.favorate.image = [UIImage imageNamed:@"star"];
+        [self.state replaceObjectAtIndex:row withObject:@"star"];
+        
+    }
+    else
+    {
+        self.favorate.image = [UIImage imageNamed:@"nonstar"];
+        [self.state replaceObjectAtIndex:row withObject:@"nonstar"];
+    }
     
 }
-/*-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
-    
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        
-        //不要把控件add到view上
-        //add到contentView才是你最正确的选择
-        
-        [self.contentView addSubview:self.label1];
-        
-        [self.contentView addSubview:self.label];
-    }
-    return self;
-}*/
+//button换图片
+/*- (IBAction)markBtn:(id)sender {
+    [self.delegate alertDialog:self];
+
+}
+
 -(void) changeImg:(NSUInteger)row
 {
         //do some method.....
         if ([self.state[row] isEqualToString:@"nonstar"]) {
-            self.favorate.image = [UIImage imageNamed:@"star"];
+           // self.starBtn.imageView.image = [UIImage imageNamed:@"star"];
+            [self.starBtn setImage:[UIImage imageNamed:@"star"] forState:UIControlStateNormal];
             [self.state replaceObjectAtIndex:row withObject:@"star"];
           
         }
         else
         {
-            self.favorate.image = [UIImage imageNamed:@"nonstar"];
+            NSLog(@"non");
+          //  self.starBtn.imageView.image = [UIImage imageNamed:@"nonstar"];
+             [self.starBtn setImage:[UIImage imageNamed:@"nonstar"] forState:UIControlStateNormal];
             [self.state replaceObjectAtIndex:row withObject:@"nonstar"];
         }
 
-}
+}*/
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

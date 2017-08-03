@@ -11,10 +11,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UILabel *date;
 @property (weak, nonatomic) IBOutlet UIImageView *portrait;
-@property (weak, nonatomic) IBOutlet UIImageView *favorate;
 @property (weak, nonatomic) IBOutlet UILabel *content;
 @property (weak,atomic)id delegate;
+//@property (weak, nonatomic) IBOutlet UIButton *starBtn;
 @property (strong,nonatomic) NSMutableArray* state;
+@property (weak, nonatomic) IBOutlet UIImageView *favorate;
+//- (IBAction)markBtn:(id)sender;
 -(void)changeImg:(NSUInteger) row;
 @end
 

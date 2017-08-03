@@ -7,7 +7,7 @@
 //
 
 #import "MainViewController.h"
-static NSString * identifier = @"CellIdentifier";
+static NSString * identifier = @"MyCell";
 @interface MainViewController ()
 
 @end
@@ -83,11 +83,15 @@ static NSString * identifier = @"CellIdentifier";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.navigationController.navigationBar.backgroundColor = [UIColor redColor];
+    
+    
+   
+  //  self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:16/255.0 green:78/255.0 blue:139/255.0 alpha:1.0];
+//    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];//字体颜色
     NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
     self.username = [userDefaults objectForKey:@"username"];
     self.navigationItem.hidesBackButton = YES;
-    [self.tableView registerNib:[UINib nibWithNibName:@"MyTableViewCell" bundle:nil] forCellReuseIdentifier:identifier];
+    [self.tableView registerNib:[UINib nibWithNibName:@"MyTableViewCell" bundle:nil] forCellReuseIdentifier:identifier];//将自定义的UITableViewCell从xib加载进内存，利用缓存机制
     self.navigationItem.title = self.username;
     //取消由于在scrollview上点击按钮有延迟，长按才可以，在tableView中取消就可以
     for (UIView *subView in self.tableView.subviews) {
@@ -108,15 +112,14 @@ static NSString * identifier = @"CellIdentifier";
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MyTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    
-   /* if (!cell)
-        cell = [[[UINib nibWithNibName:@"MyTableViewCell" bundle:nil]instantiateWithOwner:self options:nil]lastObject];*///不会运行到这里,因为UINib将cell缓存到内存了
+    MyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    cell.selectionStyle =UITableViewCellStyleDefault;
     cell.delegate = self;
     cell.date.text = [self.date_ objectAtIndex:indexPath.row];
     cell.title.text = [self.title_ objectAtIndex:indexPath.row];
     cell.content.text = [self.content_ objectAtIndex:indexPath.row];
     cell.favorate.image = [UIImage imageNamed:self.state[indexPath.row]];
+ //   [cell.starBtn setImage:[UIImage imageNamed:self.state[indexPath.row]] forState:UIControlStateNormal]; //button换图片
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

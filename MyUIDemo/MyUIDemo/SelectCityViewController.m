@@ -23,17 +23,24 @@
     return _data;
 }
 
-
+-(void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+   // self.searchController.searchBar.hidden = NO;//由于在之前跳转时候隐藏了searchbar，第二次跳转进来要显示出来
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.definesPresentationContext = YES;//设置搜索框在当前控制器显示；用于解决跳转回注册界面searchbar不消失的问题，以及第二次进入searchbar必须手动点击cancel才能正常运行searchbar的问题
     // Do any additional setup after loading the view from its nib.
     self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:0 green:122 blue:255 alpha:1];
     self.navigationItem.title = @"City";
     self.tableView.tableFooterView = [[UIView alloc] init];
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
     self.searchController.hidesNavigationBarDuringPresentation = NO;//搜索时不隐藏导航栏
-    self.searchController.dimsBackgroundDuringPresentation = NO;//搜索结果是否显示背景，设置为NO会被tableview监听到点击事件，YES不会被监听到
-  //  self.searchController.obscuresBackgroundDuringPresentation = NO;//和上面一样的
+    //搜索结果是否显示背景，设置为NO会被tableview监听到点击事件，YES不会被监听到
+  //  self.searchController.obscuresBackgroundDuringPresentation = YES;//背景模糊
+    self.searchController.dimsBackgroundDuringPresentation = NO;//背景颜色
     self.searchController.delegate = self;
     self.searchController.searchResultsUpdater = self;
     //将searchbar设置为tableview的header，避免点击searchbar后tableview 视图显示不正确
@@ -49,8 +56,6 @@
 //判断是viewcontroller本身的tableview还是searchDisplayController返回的tableview
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (self.searchController.active)
-    /*    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"self contains [cd] %@",self.searchDisplayController.searchBar.text];
-        self.results =  [[NSArray alloc] initWithArray:[self.data filteredArrayUsingPredicate:predicate]];*/
         return [self.results count];
     else
         return [self.data count];
@@ -86,20 +91,12 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"selected");
     UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
     NSString* cityName = cell.textLabel.text;
     [self.delegate setCity:cityName];
     [self.navigationController popViewControllerAnimated:YES];
 }
--(void)willDismissSearchController:(UISearchController *)searchController
-{
-    NSString *searchString = [self.searchController.searchBar text];
-    NSInteger row =  [self.data indexOfObject:searchString];
-    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:row inSection:0];
-    UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    
-}
+
 
 
 
