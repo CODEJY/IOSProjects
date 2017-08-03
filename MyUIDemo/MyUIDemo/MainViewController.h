@@ -11,6 +11,6 @@
 @interface MainViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,MyTableViewCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong,nonatomic) NSString* username;
-@property (strong,nonatomic)NSMutableArray* date_,*title_, *content_;
+@property (strong,nonatomic) NSMutableArray* date_,*title_, *content_;
 @property (strong,nonatomic) NSMutableArray* state;
 @end

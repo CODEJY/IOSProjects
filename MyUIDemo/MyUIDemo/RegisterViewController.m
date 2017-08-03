@@ -28,10 +28,15 @@ static NSString* identifier4 = @"city";
     }
     // Do any additional setup after loading the view from its nib.
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:16/255.0 green:78/255.0 blue:139/255.0 alpha:1.0];
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];//字体颜色
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];//title字体颜色
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];//设置返回按钮以及字体的颜色
     self.navigationItem.title = @"Register";
-    self.tableView.tableFooterView = [[UIView alloc] init];
+    //下个界面的回退按钮颜色以及文字
+    UIBarButtonItem* backButton = [[UIBarButtonItem alloc] init];
+    backButton.title = @"Back";
     
+    self.navigationItem.backBarButtonItem = backButton;
+    self.tableView.tableFooterView = [[UIView alloc] init];
     [self.tableView registerNib:[UINib nibWithNibName:@"TableViewCell1" bundle:nil] forCellReuseIdentifier:identifier1];
     [self.tableView registerNib:[UINib nibWithNibName:@"TableViewCell2" bundle:nil] forCellReuseIdentifier:identifier2];
     [self.tableView registerNib:[UINib nibWithNibName:@"TableViewCell3" bundle:nil] forCellReuseIdentifier:identifier3];
