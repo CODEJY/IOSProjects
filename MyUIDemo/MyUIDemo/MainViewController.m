@@ -83,11 +83,8 @@ static NSString * identifier = @"MyCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    
-   
-  //  self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:16/255.0 green:78/255.0 blue:139/255.0 alpha:1.0];
-//    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];//字体颜色
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:16/255.0 green:78/255.0 blue:139/255.0 alpha:1.0];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];//字体颜色
     NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
     self.username = [userDefaults objectForKey:@"username"];
     self.navigationItem.hidesBackButton = YES;

@@ -12,38 +12,38 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyCell" rowHeight="121" id="Bfh-0J-aaG" customClass="MyTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="370" height="120"/>
+            <rect key="frame" x="0.0" y="0.0" width="374" height="120"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bfh-0J-aaG" id="Z0W-uQ-UYg">
-                <rect key="frame" x="0.0" y="0.0" width="370" height="119.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="374" height="119.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="日期" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TK7-ls-xgQ">
-                        <rect key="frame" x="256" y="13" width="109" height="32"/>
+                        <rect key="frame" x="256" y="14" width="118" height="31"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="portrait" translatesAutoresizingMaskIntoConstraints="NO" id="SaO-mm-uoi">
-                        <rect key="frame" x="8" y="8" width="36" height="37"/>
+                        <rect key="frame" x="17" y="8" width="36" height="37"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9N-Rh-uVA">
-                        <rect key="frame" x="8" y="53" width="357" height="44"/>
+                        <rect key="frame" x="17" y="47" width="348" height="47"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcA-z5-IR9">
-                        <rect key="frame" x="61" y="13" width="168" height="32"/>
+                        <rect key="frame" x="61" y="14" width="168" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </label>
                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="nonstar" translatesAutoresizingMaskIntoConstraints="NO" id="vOz-p1-hnl">
-                        <rect key="frame" x="325" y="87" width="37" height="32"/>
+                        <rect key="frame" x="339" y="91" width="35" height="28"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                 </subviews>

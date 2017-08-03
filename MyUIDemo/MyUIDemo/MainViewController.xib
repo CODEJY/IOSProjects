@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -17,11 +17,11 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6FL-KE-bEJ">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="a48-1e-RCa"/>
@@ -32,10 +32,10 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <color key="tintColor" red="0.02271801182512247" green="0.089992929648717565" blue="0.6128251903553299" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
-                <constraint firstItem="6FL-KE-bEJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="U2V-GI-rhR"/>
-                <constraint firstItem="6FL-KE-bEJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="kF6-Mr-AJh"/>
-                <constraint firstAttribute="trailing" secondItem="6FL-KE-bEJ" secondAttribute="trailing" id="tSH-Mj-pm9"/>
-                <constraint firstAttribute="bottom" secondItem="6FL-KE-bEJ" secondAttribute="bottom" id="yC4-bn-Fuv"/>
+                <constraint firstItem="6FL-KE-bEJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Pac-cJ-4jL"/>
+                <constraint firstItem="6FL-KE-bEJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="bAu-Lx-3c5"/>
+                <constraint firstAttribute="trailing" secondItem="6FL-KE-bEJ" secondAttribute="trailing" id="rTl-lx-AyS"/>
+                <constraint firstAttribute="bottom" secondItem="6FL-KE-bEJ" secondAttribute="bottom" id="x3Q-q8-idv"/>
             </constraints>
             <point key="canvasLocation" x="41.5" y="68.5"/>
         </view>
