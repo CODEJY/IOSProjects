@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,11 +18,11 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1eL-KA-WbL">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1eL-KA-WbL">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="sectionIndexColor" red="0.0" green="0.0" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <connections>
@@ -31,10 +31,10 @@
                     </connections>
                 </tableView>
                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="9jy-nj-ZP5">
-                    <rect key="frame" x="197" y="140" width="20" height="20"/>
+                    <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
                 </activityIndicatorView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vFk-4J-mHK">
-                    <rect key="frame" x="60" y="379" width="294" height="30"/>
+                    <rect key="frame" x="60" y="458" width="255" height="30"/>
                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <state key="normal" title="Register"/>
@@ -45,17 +45,18 @@
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
             <constraints>
-                <constraint firstItem="9jy-nj-ZP5" firstAttribute="centerY" secondItem="1eL-KA-WbL" secondAttribute="centerY" id="6xo-GP-xW0"/>
-                <constraint firstItem="vFk-4J-mHK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="Ez3-O6-T1F"/>
-                <constraint firstItem="vFk-4J-mHK" firstAttribute="top" secondItem="1eL-KA-WbL" secondAttribute="bottom" constant="79" id="HsK-ZQ-xmx"/>
-                <constraint firstItem="1eL-KA-WbL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="NtG-Ew-1FG"/>
-                <constraint firstItem="9jy-nj-ZP5" firstAttribute="centerX" secondItem="1eL-KA-WbL" secondAttribute="centerX" id="Ttu-k4-zQO"/>
-                <constraint firstAttribute="bottom" secondItem="vFk-4J-mHK" secondAttribute="bottom" constant="327" id="cv9-a0-cSq"/>
-                <constraint firstItem="1eL-KA-WbL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ehp-CX-t4H"/>
-                <constraint firstAttribute="trailing" secondItem="1eL-KA-WbL" secondAttribute="trailing" id="f9h-Kp-woD"/>
-                <constraint firstAttribute="trailing" secondItem="vFk-4J-mHK" secondAttribute="trailing" constant="60" id="wfi-nO-m80"/>
+                <constraint firstItem="1eL-KA-WbL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5iG-PV-R8N"/>
+                <constraint firstItem="vFk-4J-mHK" firstAttribute="top" secondItem="9jy-nj-ZP5" secondAttribute="bottom" constant="114.5" id="CMX-t3-C1W"/>
+                <constraint firstItem="9jy-nj-ZP5" firstAttribute="centerX" secondItem="1eL-KA-WbL" secondAttribute="centerX" id="HSi-hi-jEo"/>
+                <constraint firstItem="vFk-4J-mHK" firstAttribute="top" secondItem="1eL-KA-WbL" secondAttribute="bottom" constant="-209" id="LDC-5l-RX0"/>
+                <constraint firstAttribute="trailing" secondItem="1eL-KA-WbL" secondAttribute="trailing" id="Lgj-td-h9A"/>
+                <constraint firstAttribute="trailing" secondItem="vFk-4J-mHK" secondAttribute="trailing" constant="60" id="bIP-A4-jIg"/>
+                <constraint firstItem="vFk-4J-mHK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="iGK-kP-Xhv"/>
+                <constraint firstItem="1eL-KA-WbL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="mEV-db-ZhH"/>
+                <constraint firstAttribute="bottom" secondItem="1eL-KA-WbL" secondAttribute="bottom" id="nq4-gq-VVK"/>
+                <constraint firstItem="9jy-nj-ZP5" firstAttribute="centerY" secondItem="1eL-KA-WbL" secondAttribute="centerY" id="twD-4k-Z8u"/>
             </constraints>
-            <point key="canvasLocation" x="33" y="54"/>
+            <point key="canvasLocation" x="32" y="53"/>
         </view>
     </objects>
 </document>

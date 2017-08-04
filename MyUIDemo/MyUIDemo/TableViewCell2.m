@@ -38,6 +38,11 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.selectedView = [[UIPickerView alloc] init];
+    self.textField.inputView = self.selectedView;
+    self.selectedView.backgroundColor = [UIColor whiteColor];
+    self.selectedView.dataSource = self;
+    self.selectedView.delegate = self;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -64,14 +69,14 @@
     // 因此该方法表示第几个列表项，就使用teams中的第几个元素
    // NSLog(@"数据%ld,%@",row,[_data objectAtIndex:row]);
  
-   
+    NSLog(@"有没有data");
     return [self.data objectAtIndex:row];
 }
 //当选中时
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:
 (NSInteger)row inComponent:(NSInteger)component
 {
- 
+    self.textField.text = self.data[row];
 }
 
 @end

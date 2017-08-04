@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface TableViewCell3 : UITableViewCell
-@property (nonatomic,weak) IBOutlet UIDatePicker* datePicker;
+@property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (nonatomic,strong) IBOutlet UIDatePicker* datePicker;
 @end

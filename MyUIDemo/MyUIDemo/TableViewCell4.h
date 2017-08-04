@@ -15,6 +15,7 @@
 @property (atomic,weak) IBOutlet UIButton* selectedCity_btn;
 @property (atomic,weak) IBOutlet UILabel* city;
 - (IBAction)selectCity:(id)sender;
-@property (atomic,weak) IBOutlet UILabel* cityName;
+@property (weak, nonatomic) IBOutlet UITextField *cityName;
+
 @property (nonatomic,weak) id<TableViewCell4Delegate> delegate;
 @end

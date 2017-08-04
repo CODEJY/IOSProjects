@@ -36,6 +36,7 @@
     self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:0 green:122 blue:255 alpha:1];
     self.navigationItem.title = @"City";
     self.tableView.tableFooterView = [[UIView alloc] init];
+    self.view.backgroundColor = [UIColor whiteColor];
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
     self.searchController.hidesNavigationBarDuringPresentation = NO;//搜索时不隐藏导航栏
     //搜索结果是否显示背景，设置为NO会被tableview监听到点击事件，YES不会被监听到

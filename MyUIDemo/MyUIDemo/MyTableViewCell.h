@@ -22,4 +22,5 @@
 
 @protocol MyTableViewCellDelegate <NSObject>
 -(void) alertDialog:(MyTableViewCell*) cell;
+
 @end

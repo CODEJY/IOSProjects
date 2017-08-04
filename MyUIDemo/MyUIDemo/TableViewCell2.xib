@@ -25,19 +25,18 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ltt-2k-3jd">
-                        <rect key="frame" x="110" y="9" width="260" height="41"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                        <connections>
-                            <outlet property="dataSource" destination="2Um-Sv-qQS" id="6xc-sY-2wv"/>
-                            <outlet property="delegate" destination="2Um-Sv-qQS" id="vPf-5G-3qc"/>
-                        </connections>
-                    </pickerView>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="select your sex" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hhS-kG-Rvy">
+                        <rect key="frame" x="130" y="14" width="209" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
                 </subviews>
             </tableViewCellContentView>
             <connections>
                 <outlet property="label" destination="3y3-gb-nag" id="FMl-eU-Tut"/>
-                <outlet property="selectedView" destination="ltt-2k-3jd" id="YMa-E7-wOV"/>
+                <outlet property="textField" destination="hhS-kG-Rvy" id="YZY-GB-kPC"/>
             </connections>
             <point key="canvasLocation" x="61.5" y="145"/>
         </tableViewCell>

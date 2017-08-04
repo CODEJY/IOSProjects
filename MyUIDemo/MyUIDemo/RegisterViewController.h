@@ -13,6 +13,7 @@
 #import "TableViewCell4.h"
 #import "SelectCityViewController.h"
 #import "MainViewController.h"
+
 @interface RegisterViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,TableViewCell4Delegate,SelectCityViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 - (IBAction)register:(id)sender;

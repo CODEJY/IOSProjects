@@ -22,6 +22,8 @@
 }
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-        [self.textField resignFirstResponder];
+       // [self.textField resignFirstResponder];
+ //   [self endEditing:YES];
 }
+
 @end

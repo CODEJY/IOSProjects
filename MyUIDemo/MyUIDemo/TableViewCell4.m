@@ -37,7 +37,6 @@
  }*/
 
 - (IBAction)selectCity:(id)sender {
-    NSLog(@"cell4 select");
     [self.delegate goSelectCityView];
     
 }

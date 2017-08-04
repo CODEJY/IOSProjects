@@ -41,14 +41,35 @@ static NSString* identifier4 = @"city";
     [self.tableView registerNib:[UINib nibWithNibName:@"TableViewCell2" bundle:nil] forCellReuseIdentifier:identifier2];
     [self.tableView registerNib:[UINib nibWithNibName:@"TableViewCell3" bundle:nil] forCellReuseIdentifier:identifier3];
     [self.tableView registerNib:[UINib nibWithNibName:@"TableViewCell4" bundle:nil] forCellReuseIdentifier:identifier4];
-}
+    //隐藏键盘
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
+    gestureRecognizer.numberOfTapsRequired = 1;
+    gestureRecognizer.cancelsTouchesInView = NO;
+    [self.tableView addGestureRecognizer:gestureRecognizer];
+    
 
+}
+- (void) hideKeyboard {
+    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    TableViewCell1* cell1 = [self.tableView cellForRowAtIndexPath:indexPath];
+    [cell1.textField resignFirstResponder];
+    
+    indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+    TableViewCell2* cell2 = [self.tableView cellForRowAtIndexPath:indexPath];
+    [cell2.textField resignFirstResponder];
+    
+    indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
+    TableViewCell3* cell3 = [self.tableView cellForRowAtIndexPath:indexPath];
+    [cell3.textField resignFirstResponder];
+    
+
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+//必选
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 4;
 }
@@ -60,6 +81,7 @@ static NSString* identifier4 = @"city";
     TableViewCell4 * cell4;
     if (indexPath.row == 0) {
         cell1 = [tableView dequeueReusableCellWithIdentifier:identifier1];
+       
         return cell1;
     } else if (indexPath.row == 1) {
         cell2 = [tableView dequeueReusableCellWithIdentifier:identifier2];
@@ -77,6 +99,7 @@ static NSString* identifier4 = @"city";
         
     }
 }
+//可选
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 60;
@@ -88,12 +111,13 @@ static NSString* identifier4 = @"city";
     NSDate* date;
     NSString* city;
     NSIndexPath *indexPath;
-    
     NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
     indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     TableViewCell1* cell = [self.tableView cellForRowAtIndexPath:indexPath];
     username = cell.textField.text;
+    
     [userDefaults setObject:username forKey:@"username"];
+
     
     indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
     TableViewCell2* cell2 = [self.tableView cellForRowAtIndexPath:indexPath];
@@ -111,12 +135,22 @@ static NSString* identifier4 = @"city";
     city = cell4.cityName.text;
     [userDefaults setObject:city forKey:@"city"];
     //注意将&& ||
-    if ([username isEqualToString:@""] || [city isEqualToString:@""])
-        NSLog(@"用户名或城市不能为空");
+    if ([username isEqualToString:@""] || [city isEqualToString:@""]){
+        //初始化提示框；
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"用户名或密码不能为空！" preferredStyle: UIAlertControllerStyleActionSheet];
+    
+        [alert addAction:[UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //点击按钮的响应事件；
+        }]];
+        
+        //弹出提示框；
+        [self presentViewController:alert animated:true completion:nil];
+    }
     else
     {
         [self.indicator startAnimating];
         [userDefaults setBool:YES forKey:@"isLogin"];
+        [userDefaults synchronize];//立即执行
         __weak typeof (self) weakSelf = self;
         self.timer = [NSTimer scheduledTimerWithTimeInterval:2.0f repeats:NO block:^(NSTimer* timer){
             [weakSelf.indicator stopAnimating];
@@ -141,4 +175,5 @@ static NSString* identifier4 = @"city";
     TableViewCell4* cell4 = [self.tableView cellForRowAtIndexPath:indexPath];
     cell4.cityName.text = cityName;
 }
+
 @end
