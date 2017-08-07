@@ -18,7 +18,7 @@ static NSString * identifier = @"MyCell";
 {
     if (!_date_)
     {
-        _date_ = [[NSMutableArray alloc] initWithCapacity:10];
+        _date_ = [[NSMutableArray alloc] initWithCapacity:15];
         for (int i = 0; i < 10; i++)
             [_date_ addObject:[NSString stringWithFormat:@"%@%d",@"2017-08-",i+1]];
     }
@@ -29,7 +29,7 @@ static NSString * identifier = @"MyCell";
 {
     if (!_title_)
     {
-        _title_ = [[NSMutableArray alloc] initWithCapacity:10];
+        _title_ = [[NSMutableArray alloc] initWithCapacity:15];
         for (int i = 0; i < 10; i++)
             [_title_ addObject:[NSString stringWithFormat:@"%@%d",@"title",i]];
     }
@@ -40,9 +40,19 @@ static NSString * identifier = @"MyCell";
 {
     if (!_content_)
     {
-        _content_ = [[NSMutableArray alloc] initWithCapacity:10];
-        for (int i = 0; i < 10; i++)
-            [_content_ addObject:[NSString stringWithFormat:@"%@%d",@"contentcontentcontentcontentcontentcontent\ncontent\ncontent\ncontent\n",i]];
+        _content_ = [[NSMutableArray alloc] initWithCapacity:15];
+        for (int i = 0; i < 10; i++) {
+            if (i == 0)
+                [_content_ addObject:[NSString stringWithFormat:@"%@%d",@"contentcontentcontentcontentcontentcontent",i]];
+            else if (i == 1)
+                [_content_ addObject:[NSString stringWithFormat:@"%@%d",@"contentcontentcontentcontentcontentcontent\ncontent",i]];
+            else if (i == 2)
+                [_content_ addObject:[NSString stringWithFormat:@"%@%d",@"contentcontentcontentcontentcontentcontent\ncontent\ncontent",i]];
+            else if (i == 3)
+                [_content_ addObject:[NSString stringWithFormat:@"%@%d",@"contentcontentcontentcontentcontentcontent\ncontent\ncontent\ncontent",i]];
+            else
+            [_content_ addObject:[NSString stringWithFormat:@"%@%d",@"contentcontentcontentcontentcontentcontent\ncontent\ncontent\ncontent\ncontent\ncontent",i]];
+        }
     }
     return _content_;
 }
@@ -50,7 +60,7 @@ static NSString * identifier = @"MyCell";
 {
     if (!_state)
     {
-        _state = [[NSMutableArray alloc] initWithCapacity:10];
+        _state = [[NSMutableArray alloc] initWithCapacity:15];
         for (int i = 0; i < 10; i++)
             [_state addObject:@"nonstar"];
     }
@@ -60,7 +70,12 @@ static NSString * identifier = @"MyCell";
 //下拉刷新数据
 -(void) pullDownRefreshData
 {
-    
+    if ([self.date_ count] == 15) {
+        [self.date_ removeObjectsInRange:NSMakeRange(10, 5)];
+        [self.title_ removeObjectsInRange:NSMakeRange(10, 5)];
+        [self.content_ removeObjectsInRange:NSMakeRange(10, 5)];
+        [self.state removeObjectsInRange:NSMakeRange(10, 5)];
+    }
     for (int i = 0; i < 10; i++)
         [self.date_ replaceObjectAtIndex:i withObject: [NSString stringWithFormat:@"%@%d",@"2017-09-",i+1]];
     for (int i = 0; i < 10; i++)
@@ -82,15 +97,17 @@ static NSString * identifier = @"MyCell";
 //上拉加载数据
 -(void) pullUpRefreshData
 {
-    for (int i = 0; i < 10; i++)
-        [self.date_ replaceObjectAtIndex:i withObject: [NSString stringWithFormat:@"%@%d",@"2017-06-",i+1]];
-    for (int i = 0; i < 10; i++)
-        [self.title_ replaceObjectAtIndex:i withObject: [NSString stringWithFormat:@"%@%@%d",@"pullUP ",@"title",i]];
-    for (int i = 0; i < 10; i++)
-        [self.content_ replaceObjectAtIndex:i withObject: [NSString stringWithFormat:@"%@%@%d",@"pullUP ",@"content",i]];
-    for (int i = 0; i < 10; i++)
+   
+    for (int i = 0; i < 5; i++)
+        [self.date_ addObject:[NSString stringWithFormat:@"%@%d",@"2017-06-",i+1]];
+    for (int i = 0; i < 5; i++)
+        [self.title_ addObject:[NSString stringWithFormat:@"%@%@%d",@"pullUP ",@"title",i]];
+    for (int i = 0; i < 5; i++)
+        [self.content_ addObject:[NSString stringWithFormat:@"%@%@%d",@"pullUP ",@"content",i]];
+    for (int i = 0; i < 5; i++)
         [self.state replaceObjectAtIndex:i withObject:@"nonstar"];
-    
+    for (int i = 0; i < 5; i++)
+        [_state addObject:@"nonstar"];
     __weak typeof(self) weakSelf = self;
     self.timer = [NSTimer scheduledTimerWithTimeInterval:2.0f repeats:NO block:^(NSTimer* timer){
         //  [weakSelf.indicator stopAnimating];
@@ -105,18 +122,22 @@ static NSString * identifier = @"MyCell";
     // Do any additional setup after loading the view from its nib.
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:16/255.0 green:78/255.0 blue:139/255.0 alpha:1.0];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];//字体颜色
+    //cell高度自适应，ios8.0以后可以用这个方法，label必须添加约束，不能重写-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath这个方法
+    self.tableView.estimatedRowHeight = 120;//估算高度
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
     NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
     self.username = [userDefaults objectForKey:@"username"];
     self.navigationItem.hidesBackButton = YES;
     [self.tableView registerNib:[UINib nibWithNibName:@"MyTableViewCell" bundle:nil] forCellReuseIdentifier:identifier];//将自定义的UITableViewCell从xib加载进内存，利用缓存机制
     self.navigationItem.title = self.username;
-    //取消由于在scrollview上点击按钮有延迟，长按才可以，在tableView中取消就可以
+ /*   //取消由于在scrollview上点击按钮有延迟，长按才可以，在tableView中取消就可以
     for (UIView *subView in self.tableView.subviews) {
         if ([subView isKindOfClass:[UIScrollView class]]) {
             ((UIScrollView *)subView).delaysContentTouches = false;
             break;
         }
-    }
+    }*/
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(pullDownRefreshData)];
     
     //自动更改透明度
@@ -124,20 +145,22 @@ static NSString * identifier = @"MyCell";
     
     //立即进入刷新状态
     //[self.tableView.mj_header beginRefreshing];
-    typeof(self) weakSelf = self;
-    [weakSelf.tableView.mj_header endRefreshing];
+ 
   //  self.automaticallyAdjustsScrollViewInsets = false;
      self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(pullUpRefreshData)];
+    
 
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    if ([self.view window] == nil && [self isViewLoaded])
+        self.view = nil;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return [self.date_ count];
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -151,7 +174,7 @@ static NSString * identifier = @"MyCell";
  //   [cell.starBtn setImage:[UIImage imageNamed:self.state[indexPath.row]] forState:UIControlStateNormal]; //button换图片
     return cell;
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+/*- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //return 120;
     UITableViewCell *cell = [self tableView:_tableView cellForRowAtIndexPath:indexPath];
@@ -160,7 +183,7 @@ static NSString * identifier = @"MyCell";
 }
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 120.f;
-}
+}*/
 /*
 //可选，添加头部条
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{

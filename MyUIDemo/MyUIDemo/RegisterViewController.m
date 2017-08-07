@@ -68,6 +68,8 @@ static NSString* identifier4 = @"city";
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    if ([self.view window] == nil && [self isViewLoaded])
+        self.view = nil;
 }
 //必选
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

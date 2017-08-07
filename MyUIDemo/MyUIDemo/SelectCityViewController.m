@@ -23,17 +23,11 @@
     return _data;
 }
 
--(void) viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:YES];
-   // self.searchController.searchBar.hidden = NO;//由于在之前跳转时候隐藏了searchbar，第二次跳转进来要显示出来
-    
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.definesPresentationContext = YES;//设置搜索框在当前控制器显示；用于解决跳转回注册界面searchbar不消失的问题，以及第二次进入searchbar必须手动点击cancel才能正常运行searchbar的问题
     // Do any additional setup after loading the view from its nib.
-    self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:0 green:122 blue:255 alpha:1];
+    
     self.navigationItem.title = @"City";
     self.tableView.tableFooterView = [[UIView alloc] init];
     self.view.backgroundColor = [UIColor whiteColor];
@@ -53,6 +47,8 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    if ([self.view window] == nil && [self isViewLoaded])
+        self.view = nil;
 }
 //判断是viewcontroller本身的tableview还是searchDisplayController返回的tableview
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
