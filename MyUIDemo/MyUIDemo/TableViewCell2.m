@@ -76,7 +76,14 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:
 (NSInteger)row inComponent:(NSInteger)component
 {
+    if ([self.textField.text isEqualToString:@""])
+        self.textField.text = self.data[0];
     self.textField.text = self.data[row];
 }
 
+- (IBAction)beginEdit:(id)sender {
+    if ([self.textField.text isEqualToString:@""])
+        self.textField.text = self.data[0];
+
+}
 @end

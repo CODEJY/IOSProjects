@@ -17,5 +17,7 @@
 - (IBAction)selectCity:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *cityName;
 
+
+
 @property (nonatomic,weak) id<TableViewCell4Delegate> delegate;
 @end

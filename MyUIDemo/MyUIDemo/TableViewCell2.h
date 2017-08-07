@@ -12,5 +12,6 @@
 @property (strong,nonatomic)UIPickerView* selectedView;
 @property (strong,nonatomic)NSArray* data;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
+- (IBAction)beginEdit:(id)sender;
 @property (atomic,weak) IBOutlet UILabel* label;
 @end

@@ -19,16 +19,8 @@ static NSString * identifier = @"MyCell";
     if (!_date_)
     {
         _date_ = [[NSMutableArray alloc] initWithCapacity:10];
-        [_date_ addObject:@"2017-07-31"];
-        [_date_ addObject:@"2017-08-01"];
-        [_date_ addObject:@"2017-08-02"];
-        [_date_ addObject:@"2017-08-03"];
-        [_date_ addObject:@"2017-08-04"];
-        [_date_ addObject:@"2017-08-05"];
-        [_date_ addObject:@"2017-08-06"];
-        [_date_ addObject:@"2017-08-07"];
-        [_date_ addObject:@"2017-08-08"];
-        [_date_ addObject:@"2017-08-09"];
+        for (int i = 0; i < 10; i++)
+            [_date_ addObject:[NSString stringWithFormat:@"%@%d",@"2017-08-",i+1]];
     }
     return _date_;
 }
@@ -38,16 +30,8 @@ static NSString * identifier = @"MyCell";
     if (!_title_)
     {
         _title_ = [[NSMutableArray alloc] initWithCapacity:10];
-        [_title_ addObject:@"title1"];
-        [_title_ addObject:@"title2"];
-        [_title_ addObject:@"title3"];
-        [_title_ addObject:@"title4"];
-        [_title_ addObject:@"title5"];
-        [_title_ addObject:@"title6"];
-        [_title_ addObject:@"title7"];
-        [_title_ addObject:@"title8"];
-        [_title_ addObject:@"title9"];
-        [_title_ addObject:@"title10"];
+        for (int i = 0; i < 10; i++)
+            [_title_ addObject:[NSString stringWithFormat:@"%@%d",@"title",i]];
     }
     return _title_;
 }
@@ -57,16 +41,8 @@ static NSString * identifier = @"MyCell";
     if (!_content_)
     {
         _content_ = [[NSMutableArray alloc] initWithCapacity:10];
-        [_content_ addObject:@"content1"];
-        [_content_ addObject:@"content2"];
-        [_content_ addObject:@"content3"];
-        [_content_ addObject:@"content4"];
-        [_content_ addObject:@"content5"];
-        [_content_ addObject:@"content6"];
-        [_content_ addObject:@"content7"];
-        [_content_ addObject:@"content8"];
-        [_content_ addObject:@"content9"];
-        [_content_ addObject:@"content10"];
+        for (int i = 0; i < 10; i++)
+            [_content_ addObject:[NSString stringWithFormat:@"%@%d",@"contentcontentcontentcontentcontentcontent\ncontent\ncontent\ncontent\n",i]];
     }
     return _content_;
 }
@@ -80,6 +56,50 @@ static NSString * identifier = @"MyCell";
     }
     return _state;
 }
+
+//下拉刷新数据
+-(void) pullDownRefreshData
+{
+    
+    for (int i = 0; i < 10; i++)
+        [self.date_ replaceObjectAtIndex:i withObject: [NSString stringWithFormat:@"%@%d",@"2017-09-",i+1]];
+    for (int i = 0; i < 10; i++)
+        [self.title_ replaceObjectAtIndex:i withObject: [NSString stringWithFormat:@"%@%@%d",@"pullDown ",@"title",i]];
+    for (int i = 0; i < 10; i++)
+        [self.content_ replaceObjectAtIndex:i withObject: [NSString stringWithFormat:@"%@%@%d",@"pullDown ",@"content",i]];
+    for (int i = 0; i < 10; i++)
+        [self.state replaceObjectAtIndex:i withObject:@"nonstar"];
+    
+     __weak typeof(self) weakSelf = self;
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:2.0f repeats:NO block:^(NSTimer* timer){
+   
+        [weakSelf.tableView.mj_header endRefreshing];
+        [weakSelf.tableView reloadData];
+    }];
+
+
+}
+//上拉加载数据
+-(void) pullUpRefreshData
+{
+    for (int i = 0; i < 10; i++)
+        [self.date_ replaceObjectAtIndex:i withObject: [NSString stringWithFormat:@"%@%d",@"2017-06-",i+1]];
+    for (int i = 0; i < 10; i++)
+        [self.title_ replaceObjectAtIndex:i withObject: [NSString stringWithFormat:@"%@%@%d",@"pullUP ",@"title",i]];
+    for (int i = 0; i < 10; i++)
+        [self.content_ replaceObjectAtIndex:i withObject: [NSString stringWithFormat:@"%@%@%d",@"pullUP ",@"content",i]];
+    for (int i = 0; i < 10; i++)
+        [self.state replaceObjectAtIndex:i withObject:@"nonstar"];
+    
+    __weak typeof(self) weakSelf = self;
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:2.0f repeats:NO block:^(NSTimer* timer){
+        //  [weakSelf.indicator stopAnimating];
+        [weakSelf.tableView reloadData];
+        [weakSelf.tableView.mj_footer endRefreshing];
+    }];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -97,6 +117,18 @@ static NSString * identifier = @"MyCell";
             break;
         }
     }
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(pullDownRefreshData)];
+    
+    //自动更改透明度
+    self.tableView.mj_header.automaticallyChangeAlpha = YES;
+    
+    //立即进入刷新状态
+    //[self.tableView.mj_header beginRefreshing];
+    typeof(self) weakSelf = self;
+    [weakSelf.tableView.mj_header endRefreshing];
+  //  self.automaticallyAdjustsScrollViewInsets = false;
+     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(pullUpRefreshData)];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -121,7 +153,13 @@ static NSString * identifier = @"MyCell";
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 120;
+    //return 120;
+    UITableViewCell *cell = [self tableView:_tableView cellForRowAtIndexPath:indexPath];
+    return cell.frame.size.height;
+    
+}
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 120.f;
 }
 /*
 //可选，添加头部条

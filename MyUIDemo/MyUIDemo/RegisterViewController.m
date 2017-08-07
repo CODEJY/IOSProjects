@@ -41,7 +41,7 @@ static NSString* identifier4 = @"city";
     [self.tableView registerNib:[UINib nibWithNibName:@"TableViewCell2" bundle:nil] forCellReuseIdentifier:identifier2];
     [self.tableView registerNib:[UINib nibWithNibName:@"TableViewCell3" bundle:nil] forCellReuseIdentifier:identifier3];
     [self.tableView registerNib:[UINib nibWithNibName:@"TableViewCell4" bundle:nil] forCellReuseIdentifier:identifier4];
-    //隐藏键盘
+    //隐藏键盘，自定义手势
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
     gestureRecognizer.numberOfTapsRequired = 1;
     gestureRecognizer.cancelsTouchesInView = NO;
@@ -112,13 +112,12 @@ static NSString* identifier4 = @"city";
     NSString* city;
     NSIndexPath *indexPath;
     NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+    
     indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     TableViewCell1* cell = [self.tableView cellForRowAtIndexPath:indexPath];
     username = cell.textField.text;
-    
     [userDefaults setObject:username forKey:@"username"];
 
-    
     indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
     TableViewCell2* cell2 = [self.tableView cellForRowAtIndexPath:indexPath];
     NSInteger row = [cell2.selectedView selectedRowInComponent:0];

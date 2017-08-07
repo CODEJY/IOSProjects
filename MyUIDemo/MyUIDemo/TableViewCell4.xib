@@ -32,9 +32,13 @@
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <textInputTraits key="textInputTraits"/>
+                        <connections>
+                            <action selector="selectCity_tf:" destination="BXE-id-rk0" eventType="touchUpInside" id="nfZ-Dy-m20"/>
+                            <action selector="selectCity_tf:" destination="BXE-id-rk0" eventType="editingDidEnd" id="z6e-WD-JQH"/>
+                        </connections>
                     </textField>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rHY-DC-EPG">
-                        <rect key="frame" x="334" y="11" width="41" height="39"/>
+                        <rect key="frame" x="347" y="15" width="28" height="29"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <state key="normal" title="Button" image="goAhead"/>
                         <connections>
@@ -48,7 +52,7 @@
                 <outlet property="cityName" destination="nXF-lu-eXa" id="9oF-SS-d39"/>
                 <outlet property="selectedCity_btn" destination="rHY-DC-EPG" id="KUq-pf-WtZ"/>
             </connections>
-            <point key="canvasLocation" x="59.5" y="379"/>
+            <point key="canvasLocation" x="-321.5" y="356"/>
         </tableViewCell>
     </objects>
     <resources>

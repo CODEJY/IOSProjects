@@ -36,4 +36,13 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)beginEdit:(id)sender {
+    if ([self.textField.text isEqualToString:@""]) {
+    NSDate* date = self.datePicker.date;
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"yyyy-MM-dd";
+    NSString* dateString = [formatter stringFromDate:date];
+    self.textField.text = dateString;
+    }
+}
 @end

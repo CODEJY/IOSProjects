@@ -10,5 +10,6 @@
 
 @interface TableViewCell3 : UITableViewCell
 @property (weak, nonatomic) IBOutlet UITextField *textField;
+- (IBAction)beginEdit:(id)sender;
 @property (nonatomic,strong) IBOutlet UIDatePicker* datePicker;
 @end
