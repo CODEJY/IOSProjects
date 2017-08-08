@@ -60,7 +60,7 @@
 {
     return 2;
 }
-
+//返回指定位置数据
 -(NSString *)pickerView:(UIPickerView *)pickerView
              titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
@@ -69,7 +69,6 @@
     // 因此该方法表示第几个列表项，就使用teams中的第几个元素
    // NSLog(@"数据%ld,%@",row,[_data objectAtIndex:row]);
  
-    NSLog(@"有没有data");
     return [self.data objectAtIndex:row];
 }
 //当选中时

@@ -22,26 +22,29 @@
     }
     return _data;
 }
-
+-(NSMutableArray*) result
+{
+    if (!_results) {
+        _results = [[NSMutableArray alloc] initWithCapacity:5];
+    }
+    return _results;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.definesPresentationContext = YES;//设置搜索框在当前控制器显示；用于解决跳转回注册界面searchbar不消失的问题，以及第二次进入searchbar必须手动点击cancel才能正常运行searchbar的问题
-    // Do any additional setup after loading the view from its nib.
-    
+        // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"City";
     self.tableView.tableFooterView = [[UIView alloc] init];
     self.view.backgroundColor = [UIColor whiteColor];
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
     self.searchController.hidesNavigationBarDuringPresentation = NO;//搜索时不隐藏导航栏
+    self.definesPresentationContext = YES;//设置搜索框在当前控制器显示；用于解决跳转回注册界面searchbar不消失的问题，以及第二次进入searchbar必须手动点击cancel才能正常运行searchbar的问题
     //搜索结果是否显示背景，设置为NO会被tableview监听到点击事件，YES不会被监听到
   //  self.searchController.obscuresBackgroundDuringPresentation = YES;//背景模糊
     self.searchController.dimsBackgroundDuringPresentation = NO;//背景颜色
     self.searchController.delegate = self;
     self.searchController.searchResultsUpdater = self;
-    //将searchbar设置为tableview的header，避免点击searchbar后tableview 视图显示不正确
+    //将searchbar设置为tableview的header，避免点击searchbar后tableview 视图显示不正确，导航栏会覆盖tableView
     self.tableView.tableHeaderView = self.searchController.searchBar;
-    
-    self.results = [[NSMutableArray alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -73,7 +76,7 @@
     
     return cell;
 }
-
+//searchbar内容变化
 -(void)updateSearchResultsForSearchController:(UISearchController *)searchController {
     NSString *searchString = [self.searchController.searchBar text];
     NSLog(@"%@",searchString);

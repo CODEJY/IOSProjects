@@ -46,8 +46,6 @@ static NSString* identifier4 = @"city";
     gestureRecognizer.numberOfTapsRequired = 1;
     gestureRecognizer.cancelsTouchesInView = NO;
     [self.tableView addGestureRecognizer:gestureRecognizer];
-    
-
 }
 - (void) hideKeyboard {
     NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
@@ -61,8 +59,6 @@ static NSString* identifier4 = @"city";
     indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
     TableViewCell3* cell3 = [self.tableView cellForRowAtIndexPath:indexPath];
     [cell3.textField resignFirstResponder];
-    
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -83,22 +79,18 @@ static NSString* identifier4 = @"city";
     TableViewCell4 * cell4;
     if (indexPath.row == 0) {
         cell1 = [tableView dequeueReusableCellWithIdentifier:identifier1];
-       
         return cell1;
     } else if (indexPath.row == 1) {
         cell2 = [tableView dequeueReusableCellWithIdentifier:identifier2];
         return cell2;
-        
     } else if (indexPath.row == 2) {
         cell3 = [tableView dequeueReusableCellWithIdentifier:identifier3];
         return cell3;
-        
     } else
     {
         cell4 = [tableView dequeueReusableCellWithIdentifier:identifier4];
         cell4.delegate = self;
         return cell4;
-        
     }
 }
 //可选
@@ -110,7 +102,7 @@ static NSString* identifier4 = @"city";
 - (IBAction)register:(id)sender {
     NSString* username;
     NSString* sex;
-    NSDate* date;
+    NSString* date;
     NSString* city;
     NSIndexPath *indexPath;
     NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
@@ -118,32 +110,28 @@ static NSString* identifier4 = @"city";
     indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     TableViewCell1* cell = [self.tableView cellForRowAtIndexPath:indexPath];
     username = cell.textField.text;
-    [userDefaults setObject:username forKey:@"username"];
-
+    
     indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
     TableViewCell2* cell2 = [self.tableView cellForRowAtIndexPath:indexPath];
     NSInteger row = [cell2.selectedView selectedRowInComponent:0];
     sex = [cell2.data objectAtIndex:row];
-    [userDefaults setObject:sex forKey:@"sex"];
     
     indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
     TableViewCell3* cell3 = [self.tableView cellForRowAtIndexPath:indexPath];
-    date = cell3.datePicker.date;
-    [userDefaults setObject:date forKey:@"date"];
+    date = cell3.textField.text;
+    
     
     indexPath = [NSIndexPath indexPathForRow:3 inSection:0];
     TableViewCell4* cell4 = [self.tableView cellForRowAtIndexPath:indexPath];
     city = cell4.cityName.text;
-    [userDefaults setObject:city forKey:@"city"];
-    //注意将&& ||
-    if ([username isEqualToString:@""] || [city isEqualToString:@""]){
-        //初始化提示框；
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"用户名或密码不能为空！" preferredStyle: UIAlertControllerStyleActionSheet];
     
+        //判断是否可以注册
+    if ([username isEqualToString:@""] || [city isEqualToString:@""] || [sex isEqualToString:@""] || [date isEqualToString:@""] ){
+        //初始化提示框；
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"请确保注册信息填写完整！" preferredStyle: UIAlertControllerStyleActionSheet];
         [alert addAction:[UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         //点击按钮的响应事件；
         }]];
-        
         //弹出提示框；
         [self presentViewController:alert animated:true completion:nil];
     }
@@ -151,14 +139,17 @@ static NSString* identifier4 = @"city";
     {
         [self.indicator startAnimating];
         [userDefaults setBool:YES forKey:@"isLogin"];
-        [userDefaults synchronize];//立即执行
+        [userDefaults setObject:username forKey:@"username"];
+        [userDefaults setObject:sex forKey:@"sex"];
+        [userDefaults setObject:date forKey:@"date"];
+        [userDefaults setObject:city forKey:@"city"];
+        
         __weak typeof (self) weakSelf = self;
         self.timer = [NSTimer scheduledTimerWithTimeInterval:2.0f repeats:NO block:^(NSTimer* timer){
             [weakSelf.indicator stopAnimating];
             //跳转
             MainViewController* main = [[MainViewController alloc] init];
             [weakSelf.navigationController pushViewController:main animated:YES];
-        
         }];
     }
 }
