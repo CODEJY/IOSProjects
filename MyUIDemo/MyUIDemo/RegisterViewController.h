@@ -14,7 +14,7 @@
 #import "SelectCityViewController.h"
 #import "MainViewController.h"
 
-@interface RegisterViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,TableViewCell4Delegate,SelectCityViewControllerDelegate>
+@interface RegisterViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,TableViewCell4Delegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 - (IBAction)register:(id)sender;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicator;

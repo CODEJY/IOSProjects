@@ -7,14 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-@protocol SelectCityViewControllerDelegate <NSObject>
+typedef void (^SetCityBlock) (NSString* cityName);
+/*@protocol SelectCityViewControllerDelegate <NSObject>
 -(void) setCity:(NSString*) cityName;
-@end
+@end*/
 @interface SelectCityViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,UISearchControllerDelegate,UISearchResultsUpdating>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property (copy,nonatomic) SetCityBlock myBlock;
 @property (strong,nonatomic) NSArray* data;
 @property (strong,nonatomic) NSMutableArray* results;
 @property (strong,nonatomic) UISearchController* searchController;
-@property (weak,nonatomic) id<SelectCityViewControllerDelegate> delegate;
+//@property (weak,nonatomic) id<SelectCityViewControllerDelegate> delegate;
 @end

@@ -43,15 +43,15 @@ static NSString * identifier = @"MyCell";
         _content_ = [[NSMutableArray alloc] initWithCapacity:15];
         for (int i = 0; i < 10; i++) {
             if (i == 0)
-                [_content_ addObject:[NSString stringWithFormat:@"%@%d",@"contentcontentcontentcontentcontentcontent",i]];
+                [_content_ addObject:[NSString stringWithFormat:@"%@%d",@"contentcontentcontentcontentcontentcontentcontent",i]];
             else if (i == 1)
-                [_content_ addObject:[NSString stringWithFormat:@"%@%d",@"contentcontentcontentcontentcontentcontent\ncontent",i]];
+                [_content_ addObject:[NSString stringWithFormat:@"%@%d",@"contentcontentcontentcontentcontentcontentcontent\ncontent",i]];
             else if (i == 2)
-                [_content_ addObject:[NSString stringWithFormat:@"%@%d",@"contentcontentcontentcontentcontentcontent\ncontent\ncontent",i]];
+                [_content_ addObject:[NSString stringWithFormat:@"%@%d",@"contentcontentcontentcontentcontentcontentcontent\ncontent\ncontent",i]];
             else if (i == 3)
-                [_content_ addObject:[NSString stringWithFormat:@"%@%d",@"contentcontentcontentcontentcontentcontent\ncontent\ncontent\ncontent",i]];
+                [_content_ addObject:[NSString stringWithFormat:@"%@%d",@"contentcontentcontentcontentcontentcontentcontent\ncontent\ncontent\ncontent",i]];
             else
-            [_content_ addObject:[NSString stringWithFormat:@"%@%d",@"contentcontentcontentcontentcontentcontent\ncontent\ncontent\ncontent\ncontent\ncontent",i]];
+            [_content_ addObject:[NSString stringWithFormat:@"%@%d",@"contentcontentcontentcontentcontentcontentcontent\ncontent\ncontent\ncontent\ncontent\ncontent",i]];
         }
     }
     return _content_;
@@ -70,7 +70,7 @@ static NSString * identifier = @"MyCell";
 //下拉刷新数据
 -(void) pullDownRefreshData
 {
-    if ([self.date_ count] == 15) {
+    if ([self.date_ count] >= 15) {
         [self.date_ removeObjectsInRange:NSMakeRange(10, 5)];
         [self.title_ removeObjectsInRange:NSMakeRange(10, 5)];
         [self.content_ removeObjectsInRange:NSMakeRange(10, 5)];

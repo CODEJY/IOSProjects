@@ -93,7 +93,9 @@
 {
     UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
     NSString* cityName = cell.textLabel.text;
-    [self.delegate setCity:cityName];
+   // [self.delegate setCity:cityName];
+    if (self.myBlock)
+        self.myBlock(cityName);
     [self.navigationController popViewControllerAnimated:YES];
 }
 

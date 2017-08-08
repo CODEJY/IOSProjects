@@ -157,15 +157,19 @@ static NSString* identifier4 = @"city";
 -(void)goSelectCityView
 {
     SelectCityViewController* next = [[SelectCityViewController alloc] init];
-    next.delegate = self;
+    next.myBlock = ^(NSString* cityName) {
+        NSIndexPath* indexPath = [NSIndexPath indexPathForRow:3 inSection:0];
+        TableViewCell4* cell4 = [self.tableView cellForRowAtIndexPath:indexPath];
+        cell4.cityName.text = cityName;
+    };
     [self.navigationController pushViewController:next animated:YES];
 }
 //selectcity  search 的委托
--(void)setCity:(NSString *)cityName
+/*-(void)setCity:(NSString *)cityName
 {
     NSIndexPath* indexPath = [NSIndexPath indexPathForRow:3 inSection:0];
     TableViewCell4* cell4 = [self.tableView cellForRowAtIndexPath:indexPath];
     cell4.cityName.text = cityName;
 }
-
+*/
 @end
