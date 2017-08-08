@@ -90,6 +90,7 @@ static NSString* identifier4 = @"city";
     {
         cell4 = [tableView dequeueReusableCellWithIdentifier:identifier4];
         cell4.delegate = self;
+        cell4.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         return cell4;
     }
 }
