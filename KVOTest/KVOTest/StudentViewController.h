@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "Student.h"
+#import "Companny.h"
 @interface StudentViewController : NSObject
 {
     Student* student;
 }
 -(id) init: (Student*) initStudent;
+-(void) checkup:(NSDictionary*) person;
+-(Companny*)findStockCode:(NSString*)company;
 @end

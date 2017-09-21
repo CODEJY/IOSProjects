@@ -10,6 +10,7 @@
 		8C31D8B11F1DE01E008BD99C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C31D8B01F1DE01E008BD99C /* main.m */; };
 		8C31D8B91F1DE0C9008BD99C /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C31D8B81F1DE0C9008BD99C /* Student.m */; };
 		8C31D8BC1F1DF51D008BD99C /* StudentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C31D8BB1F1DF51D008BD99C /* StudentViewController.m */; };
+		8C8F59691F7109E60099AAEA /* Companny.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C8F59681F7109E60099AAEA /* Companny.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,8 @@
 		8C31D8B81F1DE0C9008BD99C /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
 		8C31D8BA1F1DF51D008BD99C /* StudentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentViewController.h; sourceTree = "<group>"; };
 		8C31D8BB1F1DF51D008BD99C /* StudentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentViewController.m; sourceTree = "<group>"; };
+		8C8F59671F7109E60099AAEA /* Companny.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Companny.h; sourceTree = "<group>"; };
+		8C8F59681F7109E60099AAEA /* Companny.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Companny.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +71,8 @@
 				8C31D8B81F1DE0C9008BD99C /* Student.m */,
 				8C31D8BA1F1DF51D008BD99C /* StudentViewController.h */,
 				8C31D8BB1F1DF51D008BD99C /* StudentViewController.m */,
+				8C8F59671F7109E60099AAEA /* Companny.h */,
+				8C8F59681F7109E60099AAEA /* Companny.m */,
 			);
 			path = KVOTest;
 			sourceTree = "<group>";
@@ -130,6 +135,7 @@
 			files = (
 				8C31D8BC1F1DF51D008BD99C /* StudentViewController.m in Sources */,
 				8C31D8B11F1DE01E008BD99C /* main.m in Sources */,
+				8C8F59691F7109E60099AAEA /* Companny.m in Sources */,
 				8C31D8B91F1DE0C9008BD99C /* Student.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,6 +257,7 @@
 				8C31D8B61F1DE01E008BD99C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

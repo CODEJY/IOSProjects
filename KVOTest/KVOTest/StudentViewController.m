@@ -39,4 +39,32 @@
     }
     
 }
+-(void) checkup:(NSDictionary *)person
+{
+    NSString* idCard = person[@"id"];
+    if (idCard != NULL) {
+        NSString* examNumber = person[@"examNumber"];
+        if (examNumber != NULL) {
+            NSLog(@"您的身份证号为:%@，准考证号为:%@。请进入考场!",idCard,examNumber);
+        } else {
+            NSLog(@"没有准考证，不能进入考场!");
+        }
+    }else {
+        NSLog(@"没有身份证，不能进入考场!");
+    }
+}
+-(Companny*)findStockCode:(NSString *)company {
+    if ([company isEqualToString:@"Apple"]) {
+        Companny* apple = [[Companny alloc] init];
+        apple.code = @"AAPL";
+        apple.price = 90.32;
+        return apple;
+    } else if ([company isEqualToString:@"Google"]) {
+         Companny* goog = [[Companny alloc] init];
+        goog.code = @"GOOG";
+        goog.price = 556.36;
+        return goog;
+    }
+    return nil;
+}
 @end

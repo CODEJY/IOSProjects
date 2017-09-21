@@ -109,7 +109,7 @@ for number in numbers where number > 100 {
     print(number)
 }*/
 //Tuple元组
-func testTuple()->(name:String,age:Int) {
+/*func testTuple()->(name:String,age:Int) {
    // var name:String = "gary",age:Int = 23,array:[Int] = [1,2,3]
     let name = "Gary"
     let age = 18
@@ -117,4 +117,64 @@ func testTuple()->(name:String,age:Int) {
 }
 let result = testTuple()
 print("name: \(result.name)\nage: \(result.age)")
+*/
+
+//optional binding
+/*func findStockCode(company: String) -> String? {
+    if (company == "Apple") {
+        return "AAPL"
+    } else if (company == "Google") {
+        return "GOOG"
+    }
+    
+    return nil
+}
+
+var stockCode:String? = findStockCode(company: "Facebook")//nil is returned
+let text = "Stock Code - "
+if let tempStockCode = stockCode {
+    let message = text + tempStockCode
+    print(message)
+} else {
+    print("stockCode is nil!")
+}*/
+//optional chaining
+/*class Stock {
+    var code: String?
+    var price: Double?
+}
+func findStockCode(company: String) -> Stock? {
+    if company == "Apple" {
+        let aapl: Stock = Stock()
+        aapl.code = "AAPL"
+        aapl.price = 90.32
+        return aapl
+    } else if company == "Google" {
+        let goog: Stock = Stock()
+        goog.code = "GOOG"
+        goog.price = 556.36
+        return goog
+    }
+    return nil
+}
+if let sharePrice = findStockCode(company: "Apple")?.code {
+    print(sharePrice)
+}
+
+typealias Gary = Int
+var name:Gary = 18
+print(name)*/
+func chooseStepFunction(backward: Bool) -> (Int) -> Int {
+    var a = 10;
+    func stepForward(input: Int) -> Int { print(a);return input + 1; }
+    func stepBackward(input: Int) -> Int { print(a);return input - 1; }
+    return backward ? stepBackward : stepForward
+}
+var currentValue = -4
+let moveNearerToZero = chooseStepFunction(backward: currentValue > 0)
+// moveNearerToZero now refers to the nested stepForward() function
+while currentValue != 0 {
+    print("\(currentValue)... ")
+    currentValue = moveNearerToZero(currentValue)
+}
 
